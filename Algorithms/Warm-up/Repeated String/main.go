@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"os"
+	"strconv"
 	"strings"
 )
 
@@ -38,27 +40,25 @@ func repeatedString(s string, n int64) int64 {
 }
 
 func main() {
-	// reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
+	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
-	// stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
-	// checkError(err)
+	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+	checkError(err)
 
-	// defer stdout.Close()
+	defer stdout.Close()
 
-	// writer := bufio.NewWriterSize(stdout, 16*1024*1024)
+	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
-	// s := readLine(reader)
+	s := readLine(reader)
 
-	// n, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
-	// checkError(err)
+	n, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
+	checkError(err)
 
-	result := repeatedString("afcfffaged", 962645758455)
-	// result := repeatedString("aba", 10)
-	fmt.Println(result)
+	result := repeatedString(s, n)
 
-	// fmt.Fprintf(writer, "%d\n", result)
+	fmt.Fprintf(writer, "%d\n", result)
 
-	// writer.Flush()
+	writer.Flush()
 }
 
 func readLine(reader *bufio.Reader) string {
