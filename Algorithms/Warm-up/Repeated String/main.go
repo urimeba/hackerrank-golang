@@ -18,7 +18,24 @@ const checkValue = "a"
  * The function accepts following parameters:
  *  1. STRING s
  *  2. LONG_INTEGER n
- */
+
+Input #1:
+aba
+10
+Expected output:
+7
+Explanation:
+The first n = 10 letters of the infinite string are "abaabaabaa".
+Because there are 7 a's, we return 7.
+
+Input #1:
+a
+1000000000000
+Expected output:
+1000000000000
+Explanation:
+Because all of the first n = 1000000000000 letters of the infinite string are a, we return 1000000000000.
+*/
 
 func repeatedString(s string, n int64) int64 {
 	// If the string only has 1 value, and is "a", we should return 1 (n)
